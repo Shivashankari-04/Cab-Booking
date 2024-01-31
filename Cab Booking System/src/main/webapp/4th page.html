@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            background-image: url("https://wallpapercave.com/dwp2x/wp6884788.jpg");
+        }
+
+        .payment-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #upiDetails {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #qrCode {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #proceedButton {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #proceedButton:hover {
+            background-color: #2980b9;
+        }
+
+        /* Add style for the anchor tag */
+        #proceedLink {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action="DemoCarServlet"></form>
+
+    <div class="payment-form">
+        <h2>Payment Form</h2>
+
+        <form id="paymentForm" onsubmit="return handlePayment()">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod">
+                <option value="cash">Cash on Delivery</option>
+                <option value="upi">UPI</option>
+            </select>
+
+            <div id="upiDetails">
+                <label for="driverPhoneNumber">Driver's Phone Number:</label>
+                <input type="tel" id="driverPhoneNumber" name="driverPhoneNumber" placeholder="Enter driver's phone number" required>
+
+                <button>Generate QR Code</button>
+                <div id="qrCode"></div>
+            </div>
+        </form>
+
+        <!-- Wrap the button with an anchor tag -->
+        <a id="proceedLink" href="http://localhost:8080/Siva/5th%20page%20N.html">
+            <button id="proceedButton" type="submit">Proceed to Pay</button>
+        </a>
+    </div>
+</body>
+
+</html>

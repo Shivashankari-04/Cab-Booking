@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Booking</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            background-image: url("https://wallpapercave.com/dwp2x/wp7213439.jpg");
+        }
+
+        .car-selection-container {
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .car-group {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .car-option {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .car-option:hover {
+            background-color: #ecf0f1;
+        }
+
+        .car-details {
+            margin-top: 10px;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .car-details h3 {
+            margin-bottom: 10px;
+        }
+
+        .car-details p {
+            margin: 5px 0;
+        }
+
+        .payment-button {
+            position: absolute;
+            bottom: -90px;
+            left: 300px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .payment-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action="CarPServlet"></form>
+
+    <div class="car-selection-container">
+        <!-- Sedan Car Group -->
+        <div class="car-group" id="sedan-car">
+            <h2>Sedan</h2>
+            <div class="car-option" onclick="selectCar('Car 1', 'John', 'TN 38 AD 8989', '9874561230')">Hyundai Verna</div>
+            <div class="car-option" onclick="selectCar('Car 2', 'Sundar', 'TN 37 DH 9765', '6897412305')">Tata Tiago</div>
+        </div>
+        <div class="car-group" id="SUV-car">
+            <h2>SUV</h2>
+            <div class="car-option" onclick="selectCar('Car 3', 'Pravisht', 'TN 28 FH 2317', '6857412369')">Maruti Suzuki Wagon R</div>
+            <div class="car-option" onclick="selectCar('Car 4', 'Ragu', 'TN 48 NH 8877', '8877556644')">Hyundai Creta</div>
+        </div>
+        <div class="car-group" id="Luxury-car">
+            <h2>Luxury</h2>
+            <div class="car-option" onclick="selectCar('Car 5', 'Sandeep', 'TN 37 GH 9823', '9003864993')">Toyota Innova</div>
+            <div class="car-option" onclick="selectCar('Car 6', 'Murali', 'TN 47 ER 6754', '9976733033')">Renault Celerio</div>
+        </div>
+
+        
+
+        <!-- Container to display selected car details -->
+        <div id="selected-car-details" class="car-details"></div>
+
+        <!-- Payment button leading to the next payment page -->
+        <a href="http://localhost:8080/Siva/4th%20page.html" class="payment-button">Payment</a>
+    </div>
+
+    <script>
+        function selectCar(car, driverName, carNumber, driverPhoneNumber) {
+            var carDetails = '<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selected Car Details</h3>';
+            carDetails += '<p><strong>&nbsp;&nbsp;Selected Car:</strong> ' + car + '</p>';
+            carDetails += '<p><strong>&nbsp;&nbsp;Driver:</strong> ' + driverName + '</p>';
+            carDetails += '<p><strong>&nbsp;&nbsp;Car Number:</strong> ' + carNumber + '</p>';
+            carDetails += '<p><strong>&nbsp;&nbsp;Driver Phone:</strong> ' + driverPhoneNumber + '</p>';
+
+            document.getElementById('selected-car-details').innerHTML = carDetails;
+        }
+    </script>
+</body>
+
+</html>
